@@ -1,0 +1,36 @@
+[START_WORK] checkPointId=CP-01 Started checkpoint with id=CP-01
+[BARRIER_OPENING] Barrier is opening
+[BARRIER_OPEN] Barrier is open
+[BARRIER_AUTO_CLOSE] Barrier will close in 2000 ms
+[BARRIER_CLOSING] Barrier is closing
+[BARRIER_CLOSED] Barrier closed
+[BARRIER_OPENING] Barrier is opening
+[BARRIER_OPEN] Barrier is open
+[BARRIER_AUTO_CLOSE] Barrier will close in 2000 ms
+[BARRIER_CLOSING] Barrier is closing
+[BARRIER_CLOSED] Barrier closed
+[BARRIER_OPENING] Barrier is opening
+[BARRIER_OPEN] Barrier is open
+[BARRIER_AUTO_CLOSE] Barrier will close in 2000 ms
+[BARRIER_CLOSING] Barrier is closing
+[BARRIER_CLOSED] Barrier closed
+[BARRIER_OPENING] Barrier is opening
+[BARRIER_OPEN] Barrier is open
+[BARRIER_AUTO_CLOSE] Barrier will close in 2000 ms
+[BARRIER_CLOSING] Barrier is closing
+[BARRIER_CLOSED] Barrier closed
+[BARRIER_OPENING] Barrier is opening
+[BARRIER_OPEN] Barrier is open
+[BARRIER_AUTO_CLOSE] Barrier will close in 2000 ms
+[BARRIER_CLOSING] Barrier is closing
+[BARRIER_CLOSED] Barrier closed
+[BARRIER_OPENING] Barrier is opening
+[BARRIER_OPEN] Barrier is open
+[BARRIER_AUTO_CLOSE] Barrier will close in 2000 ms
+[BARRIER_CLOSING] Barrier is closing
+[BARRIER_CLOSED] Barrier closed
+[BARRIER_OPENING] Barrier is opening
+[BARRIER_OPEN] Barrier is open
+[BARRIER_AUTO_CLOSE] Barrier will close in 2000 ms
+[BARRIER_CLOSING] Barrier is closing
+[BARRIER_CLOSED] Barrier closed
