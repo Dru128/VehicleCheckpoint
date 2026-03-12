@@ -1,5 +1,7 @@
 package org.dru128
 
+import org.dru128.access.EmergencyAccessDecorator
+import org.dru128.access.TimeAccessDecorator
 import org.dru128.access.WhiteListAccessHandler
 import org.dru128.barrier.BoomBarrier
 import org.dru128.checkpoint.CheckpointConfig
@@ -11,6 +13,8 @@ import org.dru128.log.ConsoleVehicleLogger
 import org.dru128.log.FileLogger
 import org.dru128.storage.PostgressWhiteList
 import org.dru128.vehicle.SimpleVehicleNumberValidator
+import java.time.LocalTime
+
 
 fun main() {
     // Конфиг содержащий общию информацию
@@ -31,9 +35,15 @@ fun main() {
         id = "CP-01",
         vehicleIdentfier = ANPRCamera(), // Идентифицирующее ТС устройство
         barrier = BoomBarrier(logger = logger), // Ограничивающее проезд устройство
-        accessHandler = WhiteListAccessHandler( // алгоритм доступа - белый список
-            whiteList = PostgressWhiteList, // Имитация базы данных белого списка
-            numberValidator = SimpleVehicleNumberValidator(), // реализация простой валидации номера
+        accessHandler = EmergencyAccessDecorator( // Декоратор пропускающий экстренные службы без проверки
+            TimeAccessDecorator( // Декоратор доступа по времени
+                accessHandler = WhiteListAccessHandler( // алгоритм доступа - белый список
+                    whiteList = PostgressWhiteList, // Имитация базы данных белого списка
+                    numberValidator = SimpleVehicleNumberValidator(), // реализация простой валидации номера
+                ),
+                startTime = LocalTime.of(7, 0),
+                endTime = LocalTime.of(22, 0),
+            ),
         ),
         openDuration = config.openDuration, // время на к-е открывается проезд
         logger = logger,
