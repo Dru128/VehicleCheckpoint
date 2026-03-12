@@ -2,8 +2,8 @@ package org.dru128.mock
 
 import org.dru128.vehicle.Vehicle
 
-object IncomingVehicles {
-    val vehicles = arrayOf(
+object IncomingVehicles : Iterable<Vehicle> {
+    val vehicles = listOf(
         Vehicle(id = "A120CD", type = Vehicle.Type.CAR),
         Vehicle(id = "C312HE", type = Vehicle.Type.CAR),
         Vehicle(id = "S000TE", type = Vehicle.Type.CAR),
@@ -22,4 +22,8 @@ object IncomingVehicles {
     )
 
     fun getRandomVehicle() = vehicles.random()
+
+    override fun iterator(): Iterator<Vehicle> {
+        return IncomingVehicleIterator(vehicles)
+    }
 }

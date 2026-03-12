@@ -4,6 +4,8 @@ import org.dru128.access.EmergencyAccessDecorator
 import org.dru128.access.TimeAccessDecorator
 import org.dru128.access.WhiteListAccessHandler
 import org.dru128.barrier.BoomBarrier
+import org.dru128.barrier.CompositeBarrier
+import org.dru128.barrier.GateBarrier
 import org.dru128.checkpoint.CheckpointConfig
 import org.dru128.checkpoint.LoggerProxyCheckpoint
 import org.dru128.checkpoint.SimpleCheckPoint
@@ -34,7 +36,12 @@ fun main() {
     val checkPoint = SimpleCheckPoint(
         id = "CP-01",
         vehicleIdentfier = ANPRCamera(), // Идентифицирующее ТС устройство
-        barrier = BoomBarrier(logger = logger), // Ограничивающее проезд устройство
+        barrier = CompositeBarrier( // Композит барьеров (например несколько уровневая преграда)
+            listOf(
+                BoomBarrier(logger = logger),
+                GateBarrier(logger = logger),
+            )
+        ), // Составной барьер: шлагбаум и ворота
         accessHandler = EmergencyAccessDecorator( // Декоратор пропускающий экстренные службы без проверки
             TimeAccessDecorator( // Декоратор доступа по времени
                 accessHandler = WhiteListAccessHandler( // алгоритм доступа - белый список
