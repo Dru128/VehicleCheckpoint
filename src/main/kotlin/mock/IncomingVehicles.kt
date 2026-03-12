@@ -13,8 +13,8 @@ object IncomingVehicles {
         Vehicle(id = "M120CD", type = Vehicle.Type.TAXI),
         Vehicle(id = "N120CD", type = Vehicle.Type.TRUCK),
         Vehicle(id = "E120CD", type = Vehicle.Type.MOTORBIKE),
-        Vehicle(id = "P120CD", type = Vehicle.Type.EXTRA), // скорая с нормальным номером
-        Vehicle(id = "345876", type = Vehicle.Type.EXTRA), // скорая с невалидным номером
+        Vehicle(id = "P120CD", type = Vehicle.Type.EMERGENCY), // скорая с нормальным номером
+        Vehicle(id = "345876", type = Vehicle.Type.EMERGENCY), // скорая с невалидным номером
 
 
         Vehicle(id = "C999AB", type = null), // Нераспознанный тип транспорта

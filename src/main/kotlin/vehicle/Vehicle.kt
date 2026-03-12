@@ -9,6 +9,6 @@ data class Vehicle(
         TAXI,
         TRUCK,
         MOTORBIKE,
-        EXTRA,
+        EMERGENCY,
     }
 }

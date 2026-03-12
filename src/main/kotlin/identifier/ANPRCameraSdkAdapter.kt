@@ -3,17 +3,19 @@ package org.dru128.identifier
 import org.dru128.sdk.ExternalCameraSdk
 import org.dru128.vehicle.Vehicle
 
-class AnprCameraSdkAdapter(
-    private val sdk: ExternalCameraSdk,
+// Извлечение из фото номера ТС и его типа
+class ANPRCameraSdkAdapter(
+    private val cameraSdk: ExternalCameraSdk,
 ) : VehicleIdentfier {
     override fun onDetectVehicle(callback: (Vehicle) -> Unit) {
-        sdk.listenFrames { photo ->
-            val plateNumber = sdk.extractPlateNumber(photo) ?: return@listenFrames
+        cameraSdk.listenFrames { photo ->
+            // Имитация компьютерного зрения, которое анализирует фото
+            val plateNumber = cameraSdk.extractNumber(photo) ?: return@listenFrames
 
             callback.invoke(
                 Vehicle(
                     id = plateNumber,
-                    type = photo.vehicleTypeHint,
+                    type = cameraSdk.resolveVehicleType(photo),
                 )
             )
         }
