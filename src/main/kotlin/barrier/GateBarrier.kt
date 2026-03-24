@@ -5,6 +5,7 @@ import org.dru128.log.Logger
 // Ворота
 class GateBarrier(
     private val logger: Logger,
+    override val id: String,
 ): Barrier {
     override var status: Barrier.Status = Barrier.Status.CLOSED
         protected set
@@ -12,29 +13,17 @@ class GateBarrier(
     override fun open(duration: Long?) {
         when (status) {
             Barrier.Status.CLOSED -> {
-                status = Barrier.Status.OPENING
-                logger.log("GATE_OPENING", "Gate is opening")
-
-                Thread.sleep(1000)
-
                 status = Barrier.Status.OPEN
-                logger.log("GATE_OPEN", "Gate is open")
+                logger.log("GATE_OPEN", "Gate id=$id is open")
 
                 if (duration != null && duration > 0) {
-                    logger.log("GATE_AUTO_CLOSE", "Gate will close in $duration ms")
-
-                    Thread.sleep(duration)
+                    logger.log("GATE_AUTO_CLOSE", "Gate id=$id will close in $duration ms")
                     close()
                 }
             }
 
             Barrier.Status.OPEN -> {
-                logger.log("GATE_ALREADY_OPEN", "Gate already open")
-            }
-
-            Barrier.Status.OPENING,
-            Barrier.Status.CLOSING -> {
-                logger.log("GATE_BUSY", "Gate is moving, cannot open")
+                logger.log("GATE_ALREADY_OPEN", "Gate id=$id already open")
             }
         }
     }
@@ -42,22 +31,12 @@ class GateBarrier(
     override fun close() {
         when (status) {
             Barrier.Status.OPEN -> {
-                status = Barrier.Status.CLOSING
-                logger.log("GATE_CLOSING", "Gate is closing")
-
-                Thread.sleep(1000)
-
                 status = Barrier.Status.CLOSED
-                logger.log("GATE_CLOSED", "Gate closed")
+                logger.log("GATE_CLOSED", "Gate id=$id closed")
             }
 
             Barrier.Status.CLOSED -> {
-                logger.log("GATE_ALREADY_CLOSED", "Gate already closed")
-            }
-
-            Barrier.Status.OPENING,
-            Barrier.Status.CLOSING -> {
-                logger.log("GATE_BUSY", "Gate is moving, cannot close")
+                logger.log("GATE_ALREADY_CLOSED", "Gate id=$id already closed")
             }
         }
     }

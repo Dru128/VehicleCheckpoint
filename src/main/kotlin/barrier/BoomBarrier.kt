@@ -5,6 +5,7 @@ import org.dru128.log.Logger
 // Подъемный шлагбаум
 open class BoomBarrier(
     private val logger: Logger,
+    override val id: String,
 ): Barrier {
     override var status: Barrier.Status = Barrier.Status.CLOSED
         protected set
@@ -12,31 +13,17 @@ open class BoomBarrier(
     override fun open(duration: Long?) {
         when (status) {
             Barrier.Status.CLOSED -> {
-                status = Barrier.Status.OPENING
-                logger.log("BARRIER_OPENING", "Barrier is opening")
-
-                // имитация процесса открытия
-                Thread.sleep(1000)
-
                 status = Barrier.Status.OPEN
-                logger.log("BARRIER_OPEN", "Barrier is open")
+                logger.log("BARRIER_OPEN", "Barrier id=$id is open")
 
                 if (duration != null && duration > 0) {
-                    logger.log("BARRIER_AUTO_CLOSE", "Barrier will close in $duration ms")
-
-                    // закрытие после истечения времени
-                    Thread.sleep(duration)
+                    logger.log("BARRIER_AUTO_CLOSE", "Barrier id=$id will close in $duration ms")
                     close()
                 }
             }
 
             Barrier.Status.OPEN -> {
-                logger.log("BARRIER_ALREADY_OPEN", "Barrier already open")
-            }
-
-            Barrier.Status.OPENING,
-            Barrier.Status.CLOSING -> {
-                logger.log("BARRIER_BUSY", "Barrier is moving, cannot open")
+                logger.log("BARRIER_ALREADY_OPEN", "Barrier id=$id already open")
             }
         }
     }
@@ -44,23 +31,12 @@ open class BoomBarrier(
     override fun close() {
         when (status) {
             Barrier.Status.OPEN -> {
-                status = Barrier.Status.CLOSING
-                logger.log("BARRIER_CLOSING", "Barrier is closing")
-
-                // Имитация процесса закрытия
-                Thread.sleep(1000)
-
                 status = Barrier.Status.CLOSED
-                logger.log("BARRIER_CLOSED", "Barrier closed")
+                logger.log("BARRIER_CLOSED", "Barrier id=$id closed")
             }
 
             Barrier.Status.CLOSED -> {
-                logger.log("BARRIER_ALREADY_CLOSED", "Barrier already closed")
-            }
-
-            Barrier.Status.OPENING,
-            Barrier.Status.CLOSING -> {
-                logger.log("BARRIER_BUSY", "Barrier is moving, cannot close")
+                logger.log("BARRIER_ALREADY_CLOSED", "Barrier id=$id already closed")
             }
         }
     }

@@ -11,7 +11,7 @@ class SimpleCheckPoint(
     vehicleIdentfier: VehicleIdentfier,
     barrier: Barrier,
     val accessHandler: AccessHandler,
-    val openDuration: Long,
+    val openDuration: Long?,
     val logger: Logger,
 ): Checkpoint {
     override var vehicleIdentfier: VehicleIdentfier = vehicleIdentfier
@@ -23,25 +23,27 @@ class SimpleCheckPoint(
         private set
 
     override fun setVehicleIdetifier(vehicleIdentfier: VehicleIdentfier) {
-        logger.log("NEW_IDENTEFIER", "checkPointId=$id new vehicleIdetifier=$barrier")
+        logger.log("SimpleCheckPoint", "checkPointId=$id new vehicleIdetifier = ${vehicleIdentfier.javaClass}")
         this.vehicleIdentfier = vehicleIdentfier
     }
 
     override fun setBarrier(barrier: Barrier) {
-        logger.log("NEW_BARRIER", "checkPointId=$id new barrier=$barrier")
+        logger.log("SimpleCheckPoint", "checkPointId=$id new barrier = ${barrier.javaClass}")
         this.barrier = barrier
     }
 
     override fun start() {
         if (isActive) return
-        logger.log("START_WORK", "checkPointId=$id Started checkpoint with id=$id")
+        logger.log("SimpleCheckPoint", "checkPointId=$id Started checkpoint with id=$id")
+        logger.log("SimpleCheckPoint", "configuration: vehicle = ${vehicleIdentfier.javaClass}, " +
+                "barrier = ${barrier.javaClass}, accessHandler = ${accessHandler.javaClass}")
         isActive = true
         accessHandler()
     }
 
     override fun stop() {
         if (!isActive) return
-        logger.log("STOP_WORK", "checkPointId=$id Stopped checkpoint with id=$id")
+        logger.log("SimpleCheckPoint", "checkPointId = $id Stopped checkpoint with id = $id")
         isActive = false
     }
 
