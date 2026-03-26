@@ -1,0 +1,161 @@
+[2026-03-24 23:59:27] [SimpleCheckPoint] checkPointId=CP-01 Started checkpoint with id=CP-01
+[2026-03-24 23:59:27] [SimpleCheckPoint] configuration: vehicle = class org.dru128.identifier.ANPRCameraAdapter, barrier = class org.dru128.barrier.BoomBarrier, accessHandler = class org.dru128.access.WhiteListAccessHandler
+[2026-03-24 23:59:27] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-222014731.jpg)
+converted to vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-24 23:59:27] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-24 23:59:27] [BARRIER_OPEN] Barrier id=BB-01 is open
+[2026-03-24 23:59:27] [BARRIER_AUTO_CLOSE] Barrier id=BB-01 will close in 2000 ms
+[2026-03-24 23:59:27] [BARRIER_CLOSED] Barrier id=BB-01 closed
+[2026-03-24 23:59:27] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame1609391830.jpg)
+converted to vehicle = Vehicle(id=E120CD, type=MOTORBIKE)
+[2026-03-24 23:59:27] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=E120CD, type=MOTORBIKE)
+[2026-03-24 23:59:27] [BARRIER_OPEN] Barrier id=BB-01 is open
+[2026-03-24 23:59:27] [BARRIER_AUTO_CLOSE] Barrier id=BB-01 will close in 2000 ms
+[2026-03-24 23:59:27] [BARRIER_CLOSED] Barrier id=BB-01 closed
+[2026-03-24 23:59:27] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-1457277482.jpg)
+converted to vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-24 23:59:27] [WhiteListAccessHandler] ACCESS_DENIED. vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-24 23:59:27] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame772858064.jpg)
+converted to vehicle = Vehicle(id=E120CD, type=MOTORBIKE)
+[2026-03-24 23:59:27] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=E120CD, type=MOTORBIKE)
+[2026-03-24 23:59:27] [BARRIER_OPEN] Barrier id=BB-01 is open
+[2026-03-24 23:59:27] [BARRIER_AUTO_CLOSE] Barrier id=BB-01 will close in 2000 ms
+[2026-03-24 23:59:27] [BARRIER_CLOSED] Barrier id=BB-01 closed
+[2026-03-24 23:59:27] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame1075374431.jpg)
+converted to vehicle = Vehicle(id=345876, type=EMERGENCY)
+[2026-03-24 23:59:27] [WhiteListAccessHandler] Invalid number! vehicle = Vehicle(id=345876, type=EMERGENCY)
+[2026-03-24 23:59:27] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-844376770.jpg)
+converted to vehicle = Vehicle(id=345876, type=EMERGENCY)
+[2026-03-24 23:59:27] [WhiteListAccessHandler] Invalid number! vehicle = Vehicle(id=345876, type=EMERGENCY)
+[2026-03-24 23:59:27] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-85287056.jpg)
+converted to vehicle = Vehicle(id=ttt, type=CAR)
+[2026-03-24 23:59:27] [WhiteListAccessHandler] Invalid number! vehicle = Vehicle(id=ttt, type=CAR)
+[2026-03-24 23:59:27] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-476363462.jpg)
+converted to vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-24 23:59:27] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-24 23:59:27] [BARRIER_OPEN] Barrier id=BB-01 is open
+[2026-03-24 23:59:27] [BARRIER_AUTO_CLOSE] Barrier id=BB-01 will close in 2000 ms
+[2026-03-24 23:59:27] [BARRIER_CLOSED] Barrier id=BB-01 closed
+[2026-03-24 23:59:27] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-355282057.jpg)
+converted to vehicle = Vehicle(id=S000TE, type=CAR)
+[2026-03-24 23:59:27] [WhiteListAccessHandler] ACCESS_DENIED. vehicle = Vehicle(id=S000TE, type=CAR)
+[2026-03-24 23:59:27] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame1019469385.jpg)
+converted to vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-24 23:59:27] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-24 23:59:27] [BARRIER_OPEN] Barrier id=BB-01 is open
+[2026-03-24 23:59:27] [BARRIER_AUTO_CLOSE] Barrier id=BB-01 will close in 2000 ms
+[2026-03-24 23:59:27] [BARRIER_CLOSED] Barrier id=BB-01 closed
+[2026-03-25 00:11:02] [CheckpointFacade] checkPointId=CP-01 started facade
+[2026-03-25 00:11:02] [CheckpointFacade] configuration: vehicle = class org.dru128.identifier.ANPRCameraAdapter, barrier = class org.dru128.barrier.BoomBarrier, accessHandler = class org.dru128.access.WhiteListAccessHandler
+[2026-03-25 00:11:03] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame548246552.jpg)
+converted to vehicle = Vehicle(id=A120CD, type=CAR)
+[2026-03-25 00:11:03] [CheckpointFacade] checkPointId=CP-01 process vehicle=A120CD, type=CAR, profilePriority=1
+[2026-03-25 00:11:03] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=A120CD, type=CAR)
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_OPEN] BOOM barrier id=BB-01 is open on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_AUTO_CLOSE] BOOM barrier id=BB-01 will close in 2000 ms on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_CLOSED] BOOM barrier id=BB-01 closed on EMBEDDED platform
+[2026-03-25 00:11:03] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame1232367853.jpg)
+converted to vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-25 00:11:03] [CheckpointFacade] checkPointId=CP-01 process vehicle=C999AB, type=null, profilePriority=0
+[2026-03-25 00:11:03] [WhiteListAccessHandler] ACCESS_DENIED. vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-25 00:11:03] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame1673605040.jpg)
+converted to vehicle = Vehicle(id=N120CD, type=TRUCK)
+[2026-03-25 00:11:03] [CheckpointFacade] checkPointId=CP-01 process vehicle=N120CD, type=TRUCK, profilePriority=3
+[2026-03-25 00:11:03] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=N120CD, type=TRUCK)
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_OPEN] BOOM barrier id=BB-01 is open on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_AUTO_CLOSE] BOOM barrier id=BB-01 will close in 4000 ms on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_CLOSED] BOOM barrier id=BB-01 closed on EMBEDDED platform
+[2026-03-25 00:11:03] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame186276003.jpg)
+converted to vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-25 00:11:03] [CheckpointFacade] checkPointId=CP-01 process vehicle=P120CD, type=EMERGENCY, profilePriority=10
+[2026-03-25 00:11:03] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_OPEN] BOOM barrier id=BB-01 is open on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_AUTO_CLOSE] BOOM barrier id=BB-01 will close in 1000 ms on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_CLOSED] BOOM barrier id=BB-01 closed on EMBEDDED platform
+[2026-03-25 00:11:03] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame1681433494.jpg)
+converted to vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-25 00:11:03] [CheckpointFacade] checkPointId=CP-01 process vehicle=C999AB, type=null, profilePriority=0
+[2026-03-25 00:11:03] [WhiteListAccessHandler] ACCESS_DENIED. vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-25 00:11:03] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame237061348.jpg)
+converted to vehicle = Vehicle(id=ttt, type=CAR)
+[2026-03-25 00:11:03] [CheckpointFacade] checkPointId=CP-01 process vehicle=TTT, type=CAR, profilePriority=1
+[2026-03-25 00:11:03] [WhiteListAccessHandler] Invalid number! vehicle = Vehicle(id=ttt, type=CAR)
+[2026-03-25 00:11:03] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame1685538367.jpg)
+converted to vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-25 00:11:03] [CheckpointFacade] checkPointId=CP-01 process vehicle=P120CD, type=EMERGENCY, profilePriority=10
+[2026-03-25 00:11:03] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_OPEN] BOOM barrier id=BB-01 is open on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_AUTO_CLOSE] BOOM barrier id=BB-01 will close in 1000 ms on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_CLOSED] BOOM barrier id=BB-01 closed on EMBEDDED platform
+[2026-03-25 00:11:03] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame1030870354.jpg)
+converted to vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-25 00:11:03] [CheckpointFacade] checkPointId=CP-01 process vehicle=P120CD, type=EMERGENCY, profilePriority=10
+[2026-03-25 00:11:03] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_OPEN] BOOM barrier id=BB-01 is open on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_AUTO_CLOSE] BOOM barrier id=BB-01 will close in 1000 ms on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_CLOSED] BOOM barrier id=BB-01 closed on EMBEDDED platform
+[2026-03-25 00:11:03] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame485815673.jpg)
+converted to vehicle = Vehicle(id=345876, type=EMERGENCY)
+[2026-03-25 00:11:03] [CheckpointFacade] checkPointId=CP-01 process vehicle=345876, type=EMERGENCY, profilePriority=10
+[2026-03-25 00:11:03] [WhiteListAccessHandler] Invalid number! vehicle = Vehicle(id=345876, type=EMERGENCY)
+[2026-03-25 00:11:03] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame410424423.jpg)
+converted to vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-25 00:11:03] [CheckpointFacade] checkPointId=CP-01 process vehicle=P120CD, type=EMERGENCY, profilePriority=10
+[2026-03-25 00:11:03] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=P120CD, type=EMERGENCY)
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_OPEN] BOOM barrier id=BB-01 is open on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_AUTO_CLOSE] BOOM barrier id=BB-01 will close in 1000 ms on EMBEDDED platform
+[2026-03-25 00:11:03] [EMBEDDED_BOOM_CLOSED] BOOM barrier id=BB-01 closed on EMBEDDED platform
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 started facade
+[2026-03-25 22:17:52] [CheckpointFacade] configuration: vehicle = class org.dru128.identifier.ANPRCameraAdapter, barrier = class org.dru128.barrier.BoomBarrier, accessHandler = class org.dru128.access.WhiteListAccessHandler
+[2026-03-25 22:17:52] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame177379395.jpg)
+converted to vehicle = Vehicle(id=S000TE, type=CAR)
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 process vehicle=S000TE, type=CAR, profilePriority=1
+[2026-03-25 22:17:52] [WhiteListAccessHandler] ACCESS_DENIED. vehicle = Vehicle(id=S000TE, type=CAR)
+[2026-03-25 22:17:52] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-1393892925.jpg)
+converted to vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 process vehicle=C999AB, type=null, profilePriority=0
+[2026-03-25 22:17:52] [WhiteListAccessHandler] ACCESS_DENIED. vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-25 22:17:52] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame1924048428.jpg)
+converted to vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 process vehicle=C999AB, type=null, profilePriority=0
+[2026-03-25 22:17:52] [WhiteListAccessHandler] ACCESS_DENIED. vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-25 22:17:52] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-572034452.jpg)
+converted to vehicle = Vehicle(id=A120CD, type=CAR)
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 process vehicle=A120CD, type=CAR, profilePriority=1
+[2026-03-25 22:17:52] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=A120CD, type=CAR)
+[2026-03-25 22:17:52] [LINUX_BOOM_OPEN] BOOM barrier id=BB-01 is open on LINUX platform
+[2026-03-25 22:17:52] [LINUX_BOOM_AUTO_CLOSE] BOOM barrier id=BB-01 will close in 2000 ms on LINUX platform
+[2026-03-25 22:17:52] [LINUX_BOOM_CLOSED] BOOM barrier id=BB-01 closed on LINUX platform
+[2026-03-25 22:17:52] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame533949490.jpg)
+converted to vehicle = Vehicle(id=M120CD, type=TAXI)
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 process vehicle=M120CD, type=TAXI, profilePriority=2
+[2026-03-25 22:17:52] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=M120CD, type=TAXI)
+[2026-03-25 22:17:52] [LINUX_BOOM_OPEN] BOOM barrier id=BB-01 is open on LINUX platform
+[2026-03-25 22:17:52] [LINUX_BOOM_AUTO_CLOSE] BOOM barrier id=BB-01 will close in 2500 ms on LINUX platform
+[2026-03-25 22:17:52] [LINUX_BOOM_CLOSED] BOOM barrier id=BB-01 closed on LINUX platform
+[2026-03-25 22:17:52] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame268537596.jpg)
+converted to vehicle = Vehicle(id=C312HE, type=CAR)
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 process vehicle=C312HE, type=CAR, profilePriority=1
+[2026-03-25 22:17:52] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=C312HE, type=CAR)
+[2026-03-25 22:17:52] [LINUX_BOOM_OPEN] BOOM barrier id=BB-01 is open on LINUX platform
+[2026-03-25 22:17:52] [LINUX_BOOM_AUTO_CLOSE] BOOM barrier id=BB-01 will close in 2000 ms on LINUX platform
+[2026-03-25 22:17:52] [LINUX_BOOM_CLOSED] BOOM barrier id=BB-01 closed on LINUX platform
+[2026-03-25 22:17:52] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-38093153.jpg)
+converted to vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 process vehicle=C999AB, type=null, profilePriority=0
+[2026-03-25 22:17:52] [WhiteListAccessHandler] ACCESS_DENIED. vehicle = Vehicle(id=C999AB, type=null)
+[2026-03-25 22:17:52] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-406537807.jpg)
+converted to vehicle = Vehicle(id=C312HE, type=CAR)
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 process vehicle=C312HE, type=CAR, profilePriority=1
+[2026-03-25 22:17:52] [WhiteListAccessHandler] ACCESS_APPROVED by white list, vehicle = Vehicle(id=C312HE, type=CAR)
+[2026-03-25 22:17:52] [LINUX_BOOM_OPEN] BOOM barrier id=BB-01 is open on LINUX platform
+[2026-03-25 22:17:52] [LINUX_BOOM_AUTO_CLOSE] BOOM barrier id=BB-01 will close in 2000 ms on LINUX platform
+[2026-03-25 22:17:52] [LINUX_BOOM_CLOSED] BOOM barrier id=BB-01 closed on LINUX platform
+[2026-03-25 22:17:52] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame1962708699.jpg)
+converted to vehicle = Vehicle(id=S000TE, type=CAR)
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 process vehicle=S000TE, type=CAR, profilePriority=1
+[2026-03-25 22:17:52] [WhiteListAccessHandler] ACCESS_DENIED. vehicle = Vehicle(id=S000TE, type=CAR)
+[2026-03-25 22:17:52] [ANPRCameraAdaptor] vehicle photo (uri = mock://camera/frame-1312973399.jpg)
+converted to vehicle = Vehicle(id=345876, type=EMERGENCY)
+[2026-03-25 22:17:52] [CheckpointFacade] checkPointId=CP-01 process vehicle=345876, type=EMERGENCY, profilePriority=10
+[2026-03-25 22:17:52] [WhiteListAccessHandler] Invalid number! vehicle = Vehicle(id=345876, type=EMERGENCY)

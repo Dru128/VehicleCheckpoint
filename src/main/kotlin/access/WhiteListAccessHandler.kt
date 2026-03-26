@@ -11,14 +11,14 @@ class WhiteListAccessHandler(
     val logger: Logger,
 ): AccessHandler {
     override fun handle(vehicle: Vehicle): AccessResult {
-        if (vehicle.id.isNullOrEmpty()) {
+        if (!vehicle.hasNumber()) {
             return AccessResult.NOT_FOUND_ID
         }
 
-        val isValid = numberValidator.validate(vehicle.id)
+        val isValid = vehicle.isValidNumber() && numberValidator.validate(vehicle.normalizedId)
 
         if (isValid) {
-            val isAllowed = whiteList.isAllowed(vehicle.id)
+            val isAllowed = whiteList.isAllowed(vehicle.normalizedId)
 
             if (isAllowed) {
                 logger.log("WhiteListAccessHandler", "ACCESS_APPROVED by white list, vehicle = $vehicle")

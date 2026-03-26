@@ -10,7 +10,7 @@ class EmergencyAccessProxy(
     val logger: Logger,
 ) : AccessHandler {
     override fun handle(vehicle: Vehicle): AccessResult {
-        if (vehicle.type == Vehicle.Type.EMERGENCY) {
+        if (vehicle.isEmergency()) {
             logger.log("EmergencyAccessProxy", "ACCESS_APPROVED for Emergency without verification, vehicle = $vehicle")
             return AccessResult.ACCESS_APPROVED
         }
