@@ -3,27 +3,28 @@ package org.dru128.mock
 import org.dru128.vehicle.Vehicle
 
 object IncomingVehicles : Iterable<Vehicle> {
-    val vehicles = listOf(
-        Vehicle(id = "A120CD", type = Vehicle.Type.CAR),
-        Vehicle(id = "C312HE", type = Vehicle.Type.CAR),
-        Vehicle(id = "S000TE", type = Vehicle.Type.CAR),
-
-        Vehicle(id = "ttt", type = Vehicle.Type.CAR), // невалидный номер
-
-        Vehicle(id = "M120CD", type = Vehicle.Type.TAXI),
-        Vehicle(id = "N120CD", type = Vehicle.Type.TRUCK),
-        Vehicle(id = "E120CD", type = Vehicle.Type.MOTORBIKE),
-        Vehicle(id = "P120CD", type = Vehicle.Type.EMERGENCY), // скорая с нормальным номером
-        Vehicle(id = "345876", type = Vehicle.Type.EMERGENCY), // скорая с невалидным номером
-
-
-        Vehicle(id = "C999AB", type = null), // Нераспознанный тип транспорта
-
+    val vehicleRows = arrayOf(
+        "A120CD" to Vehicle.Type.CAR,
+//        "C312HE" to Vehicle.Type.CAR,
+//        "S000TE" to Vehicle.Type.CAR,
+//        "ttt" to Vehicle.Type.CAR, // невалидный номер
+//        "M120CD" to Vehicle.Type.TAXI,
+//        "N120CD" to Vehicle.Type.TRUCK,
+        "E120CD" to Vehicle.Type.MOTORBIKE,
+//        "P120CD" to Vehicle.Type.EMERGENCY, // скорая с нормальным номером
+//        "345876" to Vehicle.Type.EMERGENCY, // скорая с невалидным номером
+        "C999AB" to null, // нераспознанный тип транспорта
     )
 
-    fun getRandomVehicle() = vehicles.random()
+    fun getRandomVehicle(): Vehicle {
+        val vehicleRow = vehicleRows.random()
+        return Vehicle(
+            id = vehicleRow.first,
+            type = vehicleRow.second,
+        )
+    }
 
     override fun iterator(): Iterator<Vehicle> {
-        return IncomingVehicleIterator(vehicles)
+        return IncomingVehicleIterator(vehicleRows)
     }
 }

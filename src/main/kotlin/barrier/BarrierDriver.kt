@@ -5,3 +5,4 @@ interface BarrierDriver {
     fun close(id: String, barrierKind: String)
     fun status(id: String): Barrier.Status
 }
+

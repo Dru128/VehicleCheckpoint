@@ -3,7 +3,7 @@ package org.dru128.storage
 import org.dru128.access.WhiteList
 
 // Имитация базы данных
-object PostgressWhiteList: WhiteList {
+object PostgresWhiteList: WhiteList {
     private val whiteList = mutableListOf(
         "A120CD",
         "C312HE",

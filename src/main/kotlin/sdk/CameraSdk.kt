@@ -1,5 +1,5 @@
 package org.dru128.sdk
 
-interface ExternalCameraSdk {
+interface CameraSdk {
     fun listenFrames(callback: (VehiclePhoto) -> Unit)
 }

@@ -6,7 +6,7 @@ data class Vehicle(
 ) {
     constructor(id: String, type: Type? = null) : this(
         number = LicensePlate(id),
-        profile = VehicleProfileFactory.get(type),
+        profile = VehicleProfileFactory.create(type),
     )
 
     val id: String
