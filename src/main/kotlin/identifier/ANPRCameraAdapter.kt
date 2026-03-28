@@ -7,7 +7,7 @@ import org.dru128.vehicle.Vehicle
 
 class ANPRCameraAdapter(
     val logger: Logger,
-): VehicleIdentfier {
+): VehicleIdentifier {
     override fun onDetectVehicle(callback: (Vehicle) -> Unit) {
         val camera = APNRCameraPool.pop()
 

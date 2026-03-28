@@ -5,7 +5,16 @@ data class VehicleProfile(
     val priority: Int,
     val openDuration: Long?,
     val signalEnabled: Boolean,
-)
+) {
+    fun clone(): VehicleProfile {
+        return VehicleProfile(
+            type = this.type,
+            priority = this.priority,
+            openDuration = this.openDuration,
+            signalEnabled = this.signalEnabled,
+        )
+    }
+}
 
 object VehicleProfilePrototypes {
     val car = VehicleProfile(
@@ -15,8 +24,8 @@ object VehicleProfilePrototypes {
         signalEnabled = false,
     )
         get() {
-            println("[VehicleProfilePrototypes] return prototype: $field ")
-            return field
+            println("[VehicleProfilePrototypes] clone prototype: $field ")
+            return field.clone()
         }
 
     val taxi = VehicleProfile(
@@ -26,8 +35,8 @@ object VehicleProfilePrototypes {
         signalEnabled = false,
     )
         get() {
-            println("[VehicleProfilePrototypes] return prototype: $field ")
-            return field
+            println("[VehicleProfilePrototypes] clone prototype: $field ")
+            return field.clone()
         }
 
     val truck = VehicleProfile(
@@ -37,8 +46,8 @@ object VehicleProfilePrototypes {
         signalEnabled = true,
     )
         get() {
-            println("[VehicleProfilePrototypes] return prototype: $field ")
-            return field
+            println("[VehicleProfilePrototypes] clone prototype: $field ")
+            return field.clone()
         }
 
     val motorbike = VehicleProfile(
@@ -48,8 +57,8 @@ object VehicleProfilePrototypes {
         signalEnabled = false,
     )
         get() {
-            println("[VehicleProfilePrototypes] return prototype: $field ")
-            return field
+            println("[VehicleProfilePrototypes] clone prototype: $field ")
+            return field.clone()
         }
 
     val emergency = VehicleProfile(
@@ -59,8 +68,8 @@ object VehicleProfilePrototypes {
         signalEnabled = true,
     )
         get() {
-            println("[VehicleProfilePrototypes] return prototype: $field ")
-            return field
+            println("[VehicleProfilePrototypes] clone prototype: $field ")
+            return field.clone()
         }
 
     val unknown = VehicleProfile(
@@ -70,8 +79,8 @@ object VehicleProfilePrototypes {
         signalEnabled = false,
     )
         get() {
-        println("[VehicleProfilePrototypes] return prototype: $field ")
-        return field
+        println("[VehicleProfilePrototypes] clone prototype: $field ")
+        return field.clone()
     }
 
 }
@@ -86,49 +95,49 @@ abstract class VehicleProfileCreator(
     protected abstract fun createProfile(type: Vehicle.Type?): VehicleProfile
 }
 
-open class CarProfileCreator: VehicleProfileCreator(Vehicle.Type.CAR) {
+class CarProfileCreator: VehicleProfileCreator(Vehicle.Type.CAR) {
     override fun createProfile(type: Vehicle.Type?): VehicleProfile {
-        val profile = VehicleProfilePrototypes.car.copy(type = type)
+        val profile = VehicleProfilePrototypes.car
         println("[CarProfileCreator] factory method create: $profile")
         return profile
     }
 }
 
-open class TaxiProfileCreator : VehicleProfileCreator(Vehicle.Type.TAXI) {
+class TaxiProfileCreator : VehicleProfileCreator(Vehicle.Type.TAXI) {
     override fun createProfile(type: Vehicle.Type?): VehicleProfile {
-        val profile = VehicleProfilePrototypes.taxi.copy(type = type)
+        val profile = VehicleProfilePrototypes.taxi
         println("[TaxiProfileCreator] factory method create: $profile")
         return profile
     }
 }
 
-open class TruckProfileCreator : VehicleProfileCreator(Vehicle.Type.TRUCK) {
+class TruckProfileCreator : VehicleProfileCreator(Vehicle.Type.TRUCK) {
     override fun createProfile(type: Vehicle.Type?): VehicleProfile {
-        val profile = VehicleProfilePrototypes.truck.copy(type = type)
+        val profile = VehicleProfilePrototypes.truck
         println("[TruckProfileCreator] factory method create: $profile")
         return profile
     }
 }
 
-open class MotorbikeProfileCreator : VehicleProfileCreator(Vehicle.Type.MOTORBIKE) {
+class MotorbikeProfileCreator : VehicleProfileCreator(Vehicle.Type.MOTORBIKE) {
     override fun createProfile(type: Vehicle.Type?): VehicleProfile {
-        val profile = VehicleProfilePrototypes.motorbike.copy(type = type)
+        val profile = VehicleProfilePrototypes.motorbike
         println("[MotorbikeProfileCreator] factory method create: $profile")
         return profile
     }
 }
 
-open class EmergencyProfileCreator : VehicleProfileCreator(Vehicle.Type.EMERGENCY) {
+class EmergencyProfileCreator : VehicleProfileCreator(Vehicle.Type.EMERGENCY) {
     override fun createProfile(type: Vehicle.Type?): VehicleProfile {
-        val profile = VehicleProfilePrototypes.emergency.copy(type = type)
+        val profile = VehicleProfilePrototypes.emergency
         println("[EmergencyProfileCreator] factory method create: $profile")
         return profile
     }
 }
 
-open class UnknownProfileCreator : VehicleProfileCreator(null) {
+class UnknownProfileCreator : VehicleProfileCreator(null) {
     override fun createProfile(type: Vehicle.Type?): VehicleProfile {
-        val profile = VehicleProfilePrototypes.unknown.copy(type = type)
+        val profile = VehicleProfilePrototypes.unknown
         println("[UnknownProfileCreator] factory method create: $profile")
         return profile
     }

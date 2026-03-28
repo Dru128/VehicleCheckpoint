@@ -2,37 +2,54 @@ package org.dru128.checkpoint
 
 import org.dru128.AccessResult
 import org.dru128.access.AccessHandler
+import org.dru128.access.WhiteListAccessHandler
 import org.dru128.barrier.Barrier
-import org.dru128.identifier.VehicleIdentfier
+import org.dru128.barrier.BoomBarrier
+import org.dru128.barrier.WindowsBarrierDriver
+import org.dru128.identifier.ANPRCameraAdapter
+import org.dru128.identifier.VehicleIdentifier
 import org.dru128.log.Logger
-import org.dru128.log.VehicleLogger
+import org.dru128.storage.PostgresWhiteList
+import org.dru128.vehicle.SimpleVehicleNumberValidator
 import org.dru128.vehicle.Vehicle
 
 class CheckpointFacade(
-    private val id: String,
-    vehicleIdentfier: VehicleIdentfier,
+    val id: String,
+    override var vehicleIdentifier: VehicleIdentifier,
     barrier: Barrier,
-    private val accessHandler: AccessHandler,
-    private val openDuration: Long?,
-    private val logger: Logger,
+    var accessHandler: AccessHandler,
+    var openDuration: Long?,
+    var logger: Logger,
 ) : Checkpoint {
-    override var vehicleIdentfier: VehicleIdentfier = vehicleIdentfier
-        private set
+    private var currentBarrier: Barrier = barrier
 
-    override var barrier: Barrier = barrier
-        private set
+    override val barrier: Barrier
+        get() = currentBarrier
+
+    constructor(id: String, logger: Logger): this(
+        id = id,
+        logger = logger,
+        vehicleIdentifier = ANPRCameraAdapter(logger),
+        barrier = BoomBarrier(id = "BB-01", driver = WindowsBarrierDriver(logger)),
+        accessHandler = WhiteListAccessHandler(
+            whiteList = PostgresWhiteList,
+            numberValidator = SimpleVehicleNumberValidator(),
+            logger = logger,
+        ),
+        openDuration = 2000,
+    )
 
     override var isActive: Boolean = false
         private set
 
-    override fun setVehicleIdetifier(vehicleIdentfier: VehicleIdentfier) {
-        logger.log("CheckpointFacade", "checkPointId=$id new vehicleIdetifier = ${vehicleIdentfier.javaClass}")
-        this.vehicleIdentfier = vehicleIdentfier
+    override fun setVehicleIdetifier(vehicleIdentifier: VehicleIdentifier) {
+        logger.log("CheckpointFacade", "checkPointId=$id new vehicleIdetifier = ${vehicleIdentifier.javaClass}")
+        this.vehicleIdentifier = vehicleIdentifier
     }
 
     override fun setBarrier(barrier: Barrier) {
         logger.log("CheckpointFacade", "checkPointId=$id new barrier = ${barrier.javaClass}")
-        this.barrier = barrier
+        this.currentBarrier = barrier
     }
 
     override fun start() {
@@ -41,7 +58,7 @@ class CheckpointFacade(
         logger.log("CheckpointFacade", "checkPointId=$id started facade")
         logger.log(
             "CheckpointFacade",
-            "configuration: vehicle = ${vehicleIdentfier.javaClass.name}, barrier = ${barrier.javaClass}, accessHandler = ${accessHandler.javaClass}"
+            "configuration: vehicle = ${vehicleIdentifier.javaClass.name}, barrier = ${barrier.javaClass}, accessHandler = ${accessHandler.javaClass}"
         )
         accessHandler()
     }
@@ -53,7 +70,7 @@ class CheckpointFacade(
     }
 
     override fun accessHandler() {
-        vehicleIdentfier.onDetectVehicle { vehicle ->
+        vehicleIdentifier.onDetectVehicle { vehicle ->
             process(vehicle)
         }
     }
@@ -69,7 +86,7 @@ class CheckpointFacade(
         val result = accessHandler.handle(vehicle)
 
         if (result == AccessResult.ACCESS_APPROVED) {
-            barrier.open(vehicle.openDurationOrDefault(openDuration))
+            currentBarrier.open(vehicle.openDurationOrDefault(openDuration))
         }
 
         return result

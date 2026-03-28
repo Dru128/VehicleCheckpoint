@@ -1,25 +1,29 @@
 package org.dru128
 
-import org.dru128.checkpoint.CheckpointConfig
-import org.dru128.checkpoint.CheckpointFacade
-import org.dru128.checkpoint.LinuxCheckpointFactory
-import org.dru128.checkpoint.WindowsCheckpointFactory
+import org.dru128.access.WhiteListAccessHandler
+import org.dru128.barrier.BoomBarrier
+import org.dru128.checkpoint.CheckpointFacadeBuilder
+import org.dru128.barrier.LinuxBarrierDriver
+import org.dru128.log.ConsoleLogger
+import org.dru128.storage.PostgresWhiteList
+import org.dru128.vehicle.SimpleVehicleNumberValidator
 
 fun main() {
-    val config = CheckpointConfig(
-        openDuration = 2_000,
-        loggerFilePath = null,
-        vehicleLoggerFilePath = null,
-    )
+    val logger = ConsoleLogger()
 
-    val windowsCheckPoint: CheckpointFacade = WindowsCheckpointFactory.create(config)
-    val linuxCheckPoint: CheckpointFacade = LinuxCheckpointFactory.create(config)
-
-    Thread {
-        windowsCheckPoint.start()
-    }.start()
-
-    Thread {
-        linuxCheckPoint.start()
-    }.start()
+    val simpleCheckPoint = CheckpointFacadeBuilder()
+        .setId("SIMPLE-CP-01")
+        .setLogger(logger)
+        .setBarrier(BoomBarrier(id = "SBB-03"))
+//        .setVehicleIdentifier(ControllerNFC(logger))
+        .setAccessHandler(
+            WhiteListAccessHandler(
+                whiteList = PostgresWhiteList,
+                numberValidator = SimpleVehicleNumberValidator(),
+                logger = logger,
+            )
+        )
+        .setBarrierOpenDuration(7_500)
+        .setBarrierDriver(LinuxBarrierDriver(logger))
+        .build()
 }

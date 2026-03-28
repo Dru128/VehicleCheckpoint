@@ -4,7 +4,7 @@ import org.dru128.access.AccessHandler
 import org.dru128.access.WhiteListAccessHandler
 import org.dru128.barrier.*
 import org.dru128.identifier.ANPRCameraAdapter
-import org.dru128.identifier.VehicleIdentfier
+import org.dru128.identifier.VehicleIdentifier
 import org.dru128.log.ConsoleLogger
 import org.dru128.log.FileLogger
 import org.dru128.log.Logger
@@ -15,7 +15,7 @@ interface CheckpointFactory {
     fun createLogger(config: CheckpointConfig): Logger
     fun createBarrierDriver(logger: Logger): BarrierDriver
     fun createBarrier(driver: BarrierDriver): Barrier
-    fun createVehicleIdentifier(logger: Logger): VehicleIdentfier
+    fun createVehicleIdentifier(logger: Logger): VehicleIdentifier
     fun createAccessHandler(logger: Logger): AccessHandler
 
     fun create(config: CheckpointConfig): CheckpointFacade
@@ -36,7 +36,7 @@ object LinuxCheckpointFactory: CheckpointFactory {
         return BoomBarrier(id = "LBB-01", driver = driver)
     }
 
-    override fun createVehicleIdentifier(logger: Logger): VehicleIdentfier {
+    override fun createVehicleIdentifier(logger: Logger): VehicleIdentifier {
         return ANPRCameraAdapter(logger)
     }
 
@@ -56,7 +56,7 @@ object LinuxCheckpointFactory: CheckpointFactory {
         println("[LinuxCheckpointFactory] create CheckpointFacade id = $id")
         return CheckpointFacade(
             id = id,
-            vehicleIdentfier = createVehicleIdentifier(logger),
+            vehicleIdentifier = createVehicleIdentifier(logger),
             barrier = createBarrier(barrierDriver),
             accessHandler = createAccessHandler(logger),
             openDuration = config.openDuration,
@@ -80,7 +80,7 @@ object WindowsCheckpointFactory: CheckpointFactory {
         return BoomBarrier(id = "WBB-01", driver = driver)
     }
 
-    override fun createVehicleIdentifier(logger: Logger): VehicleIdentfier {
+    override fun createVehicleIdentifier(logger: Logger): VehicleIdentifier {
         return ANPRCameraAdapter(logger)
     }
 
@@ -100,7 +100,7 @@ object WindowsCheckpointFactory: CheckpointFactory {
         println("[WindowsCheckpointFactory] create CheckpointFacade id = $id")
         return CheckpointFacade(
             id = id,
-            vehicleIdentfier = createVehicleIdentifier(logger),
+            vehicleIdentifier = createVehicleIdentifier(logger),
             barrier = createBarrier(barrierDriver),
             accessHandler = createAccessHandler(logger),
             openDuration = config.openDuration,

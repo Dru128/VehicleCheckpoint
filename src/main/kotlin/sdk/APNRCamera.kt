@@ -1,10 +1,11 @@
 package org.dru128.sdk
 
 import org.dru128.mock.IncomingVehicles
+import org.dru128.vehicle.Vehicle
 
 class APNRCamera: CameraSdk {
     override fun listenFrames(callback: (VehiclePhoto) -> Unit) {
-        val vehicleIterator = IncomingVehicles.iterator()
+        val vehicleIterator = IncomingVehicles().iterator()
 
         while (vehicleIterator.hasNext()) {
             val vehicle = vehicleIterator.next()
@@ -39,8 +40,12 @@ object APNRCameraPool {
             return APNRCamera()
         }
 
-        println("[APNRCameraPool] pop: no free pooled camers! pool = ${usedCount()}/$poolSize")
-        return APNRCamera() // wait
+        while (available.isEmpty()) {
+            Thread.sleep(2)
+            println("[APNRCameraPool] pop: no free pooled camers! wait 2ms. pool = ${usedCount()}/$poolSize")
+        }
+
+        return pop() // wait
     }
 
     fun push(camera: APNRCamera) {
