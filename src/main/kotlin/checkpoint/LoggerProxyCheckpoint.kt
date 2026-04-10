@@ -5,7 +5,7 @@ import org.dru128.barrier.Barrier
 import org.dru128.identifier.VehicleIdentifier
 import org.dru128.log.VehicleLogger
 
-class LoggerProxyCheckpoint(
+/*class LoggerProxyCheckpoint(
     private val checkPoint: SimpleCheckPoint,
     private val logger: VehicleLogger,
 ): Checkpoint {
@@ -36,7 +36,7 @@ class LoggerProxyCheckpoint(
     }
 
     override fun accessHandler() {
-        checkPoint.vehicleIdentifier.onDetectVehicle { vehicle ->
+        checkPoint.vehicleIdentifier.startVehicleDetection { vehicle ->
             if (checkPoint.isActive) {
                 val result = checkPoint.accessHandler.handle(vehicle)
                 logger.log(result, "checkPointId=${checkPoint.id}, vehicle=$vehicle")
@@ -47,4 +47,4 @@ class LoggerProxyCheckpoint(
             }
         }
     }
-}
+}*/

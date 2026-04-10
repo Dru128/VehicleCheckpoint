@@ -6,7 +6,7 @@ import org.dru128.barrier.Barrier
 import org.dru128.identifier.VehicleIdentifier
 import org.dru128.log.Logger
 
-class SimpleCheckPoint(
+/*class SimpleCheckPoint(
     val id: String,
     vehicleIdentifier: VehicleIdentifier,
     barrier: Barrier,
@@ -50,7 +50,7 @@ class SimpleCheckPoint(
     }
 
     override fun accessHandler() {
-        vehicleIdentifier.onDetectVehicle { vehicle ->
+        vehicleIdentifier.startVehicleDetection { vehicle ->
             if (isActive) {
                 val result = accessHandler.handle(vehicle)
                 if (result == AccessResult.ACCESS_APPROVED) {
@@ -59,4 +59,4 @@ class SimpleCheckPoint(
             }
         }
     }
-}
+}*/

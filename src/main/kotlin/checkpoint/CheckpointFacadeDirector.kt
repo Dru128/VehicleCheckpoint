@@ -14,19 +14,19 @@ object CheckpointFacadeDirector {
         val logger = ConsoleLogger()
 
         return CheckpointFacadeBuilder()
-            .setId("WCP-01")
-            .setLogger(logger)
-            .setBarrier(GateBarrier(id = "WGB"))
-            .setVehicleIdentifier(ANPRCameraAdapter(logger))
-            .setAccessHandler(
+            .buildId("WCP-01")
+            .buildLogger(logger)
+            .buildBarrier(GateBarrier(id = "WGB"))
+            .buildVehicleIdentifier(ANPRCameraAdapter(logger))
+            .buildAccessHandler(
                 WhiteListAccessHandler(
                     whiteList = PostgresWhiteList,
                     numberValidator = SimpleVehicleNumberValidator(),
                     logger = logger,
                 )
             )
-            .setBarrierOpenDuration(3_500)
-            .setBarrierDriver(WindowsBarrierDriver(logger))
+            .buildBarrierOpenDuration(3_500)
+            .buildBarrierDriver(WindowsBarrierDriver(logger))
             .build()
     }
 
@@ -36,18 +36,18 @@ object CheckpointFacadeDirector {
         val logger = ConsoleLogger()
 
         return CheckpointFacadeBuilder()
-            .setId("PREM-CP-01")
-            .setLogger(logger)
-            .setBarrier(BoomBarrier(id = "PREM-BB"))
-            .setVehicleIdentifier(ControllerNFC(logger))
-            .setAccessHandler(
+            .buildId("PREM-CP-01")
+            .buildLogger(logger)
+            .buildBarrier(BoomBarrier(id = "PREM-BB"))
+            .buildVehicleIdentifier(ControllerNFC(logger))
+            .buildAccessHandler(
                 WhiteListAccessHandler(
                     whiteList = PostgresWhiteList,
                     numberValidator = SimpleVehicleNumberValidator(),
                     logger = logger,
                 )
             )
-            .setBarrierOpenDuration(5_000)
+            .buildBarrierOpenDuration(5_000)
             .build()
     }
 }

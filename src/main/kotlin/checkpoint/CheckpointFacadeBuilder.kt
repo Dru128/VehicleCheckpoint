@@ -8,13 +8,13 @@ import org.dru128.identifier.VehicleIdentifier
 import org.dru128.log.Logger
 
 interface ICheckpointFacadeBuilder {
-    fun setId(id: String): ICheckpointFacadeBuilder
-    fun setLogger(logger: Logger): ICheckpointFacadeBuilder
-    fun setBarrierDriver(barrierDriver: BarrierDriver): ICheckpointFacadeBuilder
-    fun setBarrier(barrier: Barrier): ICheckpointFacadeBuilder
-    fun setVehicleIdentifier(vehicleIdentifier: VehicleIdentifier): ICheckpointFacadeBuilder
-    fun setAccessHandler(accessHandler: AccessHandler): ICheckpointFacadeBuilder
-    fun setBarrierOpenDuration(duration: Long): ICheckpointFacadeBuilder
+    fun buildId(id: String): ICheckpointFacadeBuilder
+    fun buildLogger(logger: Logger): ICheckpointFacadeBuilder
+    fun buildBarrierDriver(barrierDriver: BarrierDriver): ICheckpointFacadeBuilder
+    fun buildBarrier(barrier: Barrier): ICheckpointFacadeBuilder
+    fun buildVehicleIdentifier(vehicleIdentifier: VehicleIdentifier): ICheckpointFacadeBuilder
+    fun buildAccessHandler(accessHandler: AccessHandler): ICheckpointFacadeBuilder
+    fun buildBarrierOpenDuration(duration: Long): ICheckpointFacadeBuilder
 
     fun build(): CheckpointFacade
 }
@@ -28,43 +28,43 @@ class CheckpointFacadeBuilder: ICheckpointFacadeBuilder {
     private var checkpointAccessHandler: AccessHandler? = null
     private var checkpointOpenDuration: Long? = null
 
-    override fun setId(id: String): ICheckpointFacadeBuilder {
+    override fun buildId(id: String): ICheckpointFacadeBuilder {
         checkpointId = id
         println("[BUILDER] setId=$id")
         return this
     }
 
-    override fun setLogger(logger: Logger): ICheckpointFacadeBuilder {
+    override fun buildLogger(logger: Logger): ICheckpointFacadeBuilder {
         checkpointLogger = logger
         println("[BUILDER] setLogger=$logger")
         return this
     }
 
-    override fun setBarrierDriver(barrierDriver: BarrierDriver): ICheckpointFacadeBuilder {
+    override fun buildBarrierDriver(barrierDriver: BarrierDriver): ICheckpointFacadeBuilder {
         checkpointBarrierDriver = barrierDriver
         println("[BUILDER] setBarrierDriver=$barrierDriver")
         return this
     }
 
-    override fun setBarrier(barrier: Barrier): ICheckpointFacadeBuilder {
+    override fun buildBarrier(barrier: Barrier): ICheckpointFacadeBuilder {
         checkpointBarrier = barrier
         println("[BUILDER] setBarrier=$barrier")
         return this
     }
 
-    override fun setVehicleIdentifier(vehicleIdentifier: VehicleIdentifier): ICheckpointFacadeBuilder {
+    override fun buildVehicleIdentifier(vehicleIdentifier: VehicleIdentifier): ICheckpointFacadeBuilder {
         checkpointVehicleIdentifier = vehicleIdentifier
         println("[BUILDER] setVehicleIdentifier=$vehicleIdentifier")
         return this
     }
 
-    override fun setBarrierOpenDuration(duration: Long): ICheckpointFacadeBuilder {
+    override fun buildBarrierOpenDuration(duration: Long): ICheckpointFacadeBuilder {
         checkpointOpenDuration = duration
         println("[BUILDER] setBarrierOpenDuration=$duration")
         return this
     }
 
-    override fun setAccessHandler(accessHandler: AccessHandler): ICheckpointFacadeBuilder {
+    override fun buildAccessHandler(accessHandler: AccessHandler): ICheckpointFacadeBuilder {
         checkpointAccessHandler = accessHandler
         println("[BUILDER] setAccessHandler=$accessHandler")
         return this

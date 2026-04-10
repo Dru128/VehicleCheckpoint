@@ -1,5 +1,6 @@
 package org.dru128.log
 
+import org.dru128.vehicle.Vehicle
 import java.io.File
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -25,5 +26,11 @@ class FileLogger(private val path: String): Logger {
         val timestamp = LocalDateTime.now().format(dateTimeFormatter)
         val line = "[$timestamp] [ERROR] $error\n"
         file.appendText(line)
+    }
+
+    override fun update(value: Vehicle?) {
+        if (value != null) {
+            println("[LoggerObserver] vehicle=$value")
+        }
     }
 }

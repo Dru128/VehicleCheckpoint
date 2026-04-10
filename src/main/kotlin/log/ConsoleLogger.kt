@@ -1,5 +1,6 @@
 package org.dru128.log
 
+import org.dru128.vehicle.Vehicle
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -13,5 +14,11 @@ class ConsoleLogger: Logger {
 
     override fun error(error: String) {
         println("[ERROR] $error")
+    }
+
+    override fun update(value: Vehicle?) {
+        if (value != null) {
+            println("[LoggerObserver] vehicle=${value.profile}")
+        }
     }
 }

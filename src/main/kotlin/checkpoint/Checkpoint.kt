@@ -12,5 +12,4 @@ interface Checkpoint {
     fun setBarrier(barrier: Barrier)
     fun start()
     fun stop()
-    fun accessHandler()
 }
